@@ -15,10 +15,11 @@
     </form>
 
     <?php
+    include 'functions.php';
+
     if (isset($_GET['length'])) {
         $length = intval($_GET['length']);
-        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
-        $password = substr(str_shuffle(str_repeat($characters, $length)), 0, $length);
+        $password = generate_password($length);
         echo "<h2>Password generata: <strong>$password</strong></h2>";
     }
     ?>
